@@ -14,3 +14,13 @@ function divide(num1, num2) {
     return num1 / num2;
 }
 
+
+const num1;
+const num2;
+const operator;
+
+
+function operate(num1, num2, operator) {
+    return operator(num1, num2)
+}
+
