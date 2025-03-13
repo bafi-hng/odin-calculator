@@ -1,0 +1,35 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {  
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+}
+
+.display{
+    display: flex;
+    font-size: 32px;
+    background-color: rgb(217, 217, 217);
+    flex: 1;
+    justify-content: flex-end;
+    padding: 8px;
+    border: 1px solid black;
+    border-radius: 4px;
+}
+
+.row {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+}
+
+button {
+    box-sizing: border-box;
+    font-size: 24px;
+    padding: 16px;
+    flex: 1 1;
+}
