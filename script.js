@@ -33,8 +33,15 @@ const digitButtons = document.querySelectorAll(".digit");
 digitButtons.forEach((button) => {
     button.addEventListener("click", () => {
         inputNum += button.textContent;
-        displayNum.textContent = (parseInt(inputNum).toString());
+        inputNum = parseInt(inputNum)
+        displayNum.textContent = (inputNum.toString());
     })
+})
+
+const clearButton = document.querySelector("#clear");
+clearButton.addEventListener("click", () => {
+    inputNum = "";
+    displayNum.textContent = "0";
 })
 
 console.log(displayNum.textContent)
