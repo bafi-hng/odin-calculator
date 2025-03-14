@@ -39,6 +39,8 @@ let operator = add;
 
 let result = 0;
 
+let calculationDone = false;
+
 const digitButtons = document.querySelectorAll(".digit");
 digitButtons.forEach((button) => {
     button.addEventListener("click", () => {
@@ -72,6 +74,8 @@ opButtons.forEach((button) => {
                 break;
         }
 
+        calculationDone = false;
+
         test();
     });
 });
@@ -79,16 +83,20 @@ opButtons.forEach((button) => {
 // result button
 const resButton = document.querySelector(".result");
 resButton.addEventListener("click", () => {
-    if (firstNum == 0 && secondNum == 0) {
+    secondNum = inputNum;
+    
+    if (calculationDone == true) {
         return;
     }
-    secondNum = inputNum;
+
     result = operator(firstNum, secondNum);
 
     displayNum.textContent = result.toString();
     inputNum = result;
     firstNum = 0;
     secondNum = 0;
+
+    calculationDone = true;
 
     test();
     console.log(result);
@@ -103,6 +111,8 @@ clearButton.addEventListener("click", () => {
     secondNum = 0;
     operator = add;
     displayNum.textContent = "0";
+
+    calculationDone = false;
     test();
 })
 
