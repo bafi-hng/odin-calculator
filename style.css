@@ -1,30 +1,44 @@
+@font-face {
+    font-family: "SF";
+    src: url("/Fonts/SFPRODISPLAYREGULAR.OTF");
+}
+
 body {
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 100vh;
+    background-color: #D4D4D2;
+    font-family: "SF";
 }
 
 .container {  
+    flex: 0 1 auto;
     width: 300px;
     display: flex;
     flex-direction: column;
+    gap: 8px;
+    background-color: #1C1C1C;
+    padding: 32px;
+    border-radius: 16px;
 }
 
 .display{
     display: flex;
     font-size: 32px;
-    background-color: rgb(217, 217, 217);
+    background-color: #505050;
+    color: white;  
     flex: 1;
     justify-content: flex-end;
     padding: 8px;
-    border: 1px solid black;
-    border-radius: 4px;
+    border-radius: 8px;
 }
 
 .row {
     flex: 1;
     display: flex;
     justify-content: space-between;
+    gap: 8px;
 }
 
 button {
@@ -32,4 +46,20 @@ button {
     font-size: 24px;
     padding: 16px;
     flex: 1 1;
+    background-color: #D4D4D2;
+    border: none;
+    border-radius: 8px;
 }
+
+button:active{
+    background-color: #ebebeb;
+}
+
+.operator {
+    background-color: #FF9500;
+}
+
+.operator:active {
+    background-color: #ffaa33;
+}
+
