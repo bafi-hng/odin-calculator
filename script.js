@@ -19,11 +19,12 @@ function operate(num1, num2, operator) {
 }
 
 function test() {
-    console.log(
-        `inputNum: ${inputNum}`,
-        `firstNum: ${firstNum}`,
-        `secondNum: ${secondNum}`
-    )
+    // console.log(
+    //     `inputNum: ${inputNum}`,
+    //     `firstNum: ${firstNum}`,
+    //     `secondNum: ${secondNum}`
+    // )
+    console.log(calculationDone)
 }
 
 // display
@@ -44,6 +45,12 @@ let calculationDone = false;
 const digitButtons = document.querySelectorAll(".digit");
 digitButtons.forEach((button) => {
     button.addEventListener("click", () => {
+
+        if (calculationDone == true) {
+            inputNum = 0;
+            calculationDone = false;
+        }
+
         inputNum = inputNum.toString();
         inputNum += button.textContent;
         inputNum = parseInt(inputNum)
