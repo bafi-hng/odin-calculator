@@ -42,9 +42,6 @@ let result = 0;
 const digitButtons = document.querySelectorAll(".digit");
 digitButtons.forEach((button) => {
     button.addEventListener("click", () => {
-        if (inputNum != 0) {
-            inputNum = 0;
-        }
         inputNum = inputNum.toString();
         inputNum += button.textContent;
         inputNum = parseInt(inputNum)
@@ -82,6 +79,9 @@ opButtons.forEach((button) => {
 // result button
 const resButton = document.querySelector(".result");
 resButton.addEventListener("click", () => {
+    if (firstNum == 0 && secondNum == 0) {
+        return;
+    }
     secondNum = inputNum;
     result = operator(firstNum, secondNum);
 
