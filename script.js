@@ -14,9 +14,16 @@ function divide(num1, num2) {
     return num1 / num2;
 }
 
-
 function operate(num1, num2, operator) {
     return operator(num1, num2);
+}
+
+function test() {
+    console.log(
+        `inputNum: ${inputNum}`,
+        `firstNum: ${firstNum}`,
+        `secondNum: ${secondNum}`
+    )
 }
 
 // display
@@ -24,18 +31,26 @@ const displayNum = document.querySelector(".display");
 
 
 // digit buttons
-let currNum = "";
+let inputNum = 0;
 
-let firstNum = currNum;
-let secondNum;
-let operator;
+let firstNum = 0;
+let secondNum = 0;
+let operator = add;
+
+let result = 0;
 
 const digitButtons = document.querySelectorAll(".digit");
 digitButtons.forEach((button) => {
     button.addEventListener("click", () => {
-        currNum += button.textContent;
-        currNum = parseInt(currNum)
-        displayNum.textContent = (currNum.toString());
+        if (inputNum != 0) {
+            inputNum = 0;
+        }
+        inputNum = inputNum.toString();
+        inputNum += button.textContent;
+        inputNum = parseInt(inputNum)
+        displayNum.textContent = (inputNum.toString());
+
+        test()
     })
 });
 
@@ -43,8 +58,8 @@ digitButtons.forEach((button) => {
 const opButtons = document.querySelectorAll(".operator");
 opButtons.forEach((button) => {
     button.addEventListener("click", () => {
-        firstNum = currNum;
-        currNum = "";
+        firstNum = inputNum;
+        inputNum = 0;
         switch (button.textContent) {
             case "+": 
                 operator = add;
@@ -59,25 +74,36 @@ opButtons.forEach((button) => {
                 operator = divide;
                 break;
         }
+
+        test();
     });
 });
 
 // result button
 const resButton = document.querySelector(".result");
 resButton.addEventListener("click", () => {
-    secondNum = currNum;
+    secondNum = inputNum;
     result = operator(firstNum, secondNum);
-    console.log(result);
+
     displayNum.textContent = result.toString();
-    currNum = "";
+    inputNum = result;
+    firstNum = 0;
+    secondNum = 0;
+
+    test();
+    console.log(result);
 })
 
 
 // clear button
 const clearButton = document.querySelector("#clear");
 clearButton.addEventListener("click", () => {
-    currNum = "";
+    inputNum = 0;
+    firstNum = 0;
+    secondNum = 0;
+    operator = add;
     displayNum.textContent = "0";
+    test();
 })
 
 console.log(displayNum.textContent)
