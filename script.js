@@ -67,10 +67,10 @@ opButtons.forEach((button) => {
             case "-": 
                 operator = subtract;
                 break;
-            case "*":
+            case "×":
                 operator = multiply;
                 break;
-            case "/":
+            case "÷":
                 operator = divide;
                 break;
         }
