@@ -98,7 +98,12 @@ resButton.addEventListener("click", () => {
 
     result = operator(firstNum, secondNum);
 
-    displayNum.textContent = result.toString();
+    if (!isFinite(result)) {
+        displayNum.textContent = "This won't work";
+    } else {
+        displayNum.textContent = result.toFixed(2).toString();
+    }
+
     inputNum = result;
     firstNum = 0;
     secondNum = 0;
