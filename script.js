@@ -52,9 +52,12 @@ digitButtons.forEach((button) => {
         }
 
         inputNum = inputNum.toString();
-        inputNum += button.textContent;
-        inputNum = parseInt(inputNum)
-        displayNum.textContent = (inputNum.toString());
+
+        if (inputNum.length < 9) {
+            inputNum += button.textContent;
+            inputNum = parseInt(inputNum)
+            displayNum.textContent = (inputNum.toString());
+        }
 
         test()
     })
@@ -99,9 +102,13 @@ resButton.addEventListener("click", () => {
     result = operator(firstNum, secondNum);
 
     if (!isFinite(result)) {
-        displayNum.textContent = "This won't work";
+        displayNum.textContent = "Error";
     } else {
-        displayNum.textContent = result.toFixed(2).toString();
+        if (Number.isInteger(result)) {
+            displayNum.textContent = result.toString();
+        } else {
+            displayNum.textContent = result.toFixed(9 - (1 + result.toString().indexOf('.'))).toString();
+        }
     }
 
     inputNum = result;
