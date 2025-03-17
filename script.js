@@ -36,7 +36,7 @@ let inputNum = 0;
 
 let firstNum = 0;
 let secondNum = 0;
-let operator = add;
+let operator = null;
 
 let result = 0;
 
@@ -67,8 +67,12 @@ digitButtons.forEach((button) => {
 const opButtons = document.querySelectorAll(".operator");
 opButtons.forEach((button) => {
     button.addEventListener("click", () => {
-        firstNum = inputNum;
-        inputNum = 0;
+
+        if (operator === null) {
+            firstNum = inputNum;
+            inputNum = 0;
+        }
+        
         switch (button.textContent) {
             case "+": 
                 operator = add;
@@ -114,6 +118,7 @@ resButton.addEventListener("click", () => {
     inputNum = result;
     firstNum = 0;
     secondNum = 0;
+    operator = null;
 
     calculationDone = true;
 
@@ -128,7 +133,7 @@ clearButton.addEventListener("click", () => {
     inputNum = 0;
     firstNum = 0;
     secondNum = 0;
-    operator = add;
+    operator = null;
     displayNum.textContent = "0";
 
     calculationDone = false;
