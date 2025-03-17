@@ -3,13 +3,27 @@
     src: url("/Fonts/SFPRODISPLAYREGULAR.OTF");
 }
 
+@font-face {
+    font-family: "SF Mono Medium";
+    src: url("/Fonts/SFMonoMedium.otf");
+}
+
+@font-face {
+    font-family: "SF Mono Regular";
+    src: url("/Fonts/SFMonoRegular.otf");
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+
+
 body {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     background-color: #D4D4D2;
-    font-family: "SF";
+    /* font-family: 'Roboto Mono', monospace; */
+    font-family: "SF Mono Regular", "SF Mono", "SFMono-Regular", "Menlo", "Consolas", "Courier New", monospace;
 }
 
 .container {  
@@ -19,19 +33,20 @@ body {
     flex-direction: column;
     gap: 8px;
     background-color: #1C1C1C;
-    padding: 32px;
+    padding: 36px;
     border-radius: 32px;
 }
 
 .display{
     display: flex;
-    font-size: 32px;
+    font-size: 46px;
     background-color: #505050;
     color: white;  
     flex: 1;
     justify-content: flex-end;
     padding: 16px;
     border-radius: 16px;
+    font-family: "SF Mono Regular", "SF Mono", "SFMono-Regular", "Menlo", "Consolas", "Courier New", monospace;
 }
 
 .row {
@@ -42,15 +57,15 @@ body {
 }
 
 button {
-    font-family: "SF";
+    color: black;
     box-sizing: border-box;
-    font-size: 24px;
-    font-weight: 500;
+    font-size: 32px;    
     padding: 16px;
     flex: 1 1;
     background-color: #D4D4D2;
     border: none;
     border-radius: 16px;
+    font-family: "SF Mono Regular", "SF Mono", "SFMono-Regular", "Menlo", "Consolas", "Courier New", monospace;
 }
 
 button:active{
@@ -59,6 +74,7 @@ button:active{
 
 .operator, .result {
     background-color: #FF9500;
+    color: white;
 }
 
 .operator:active, .result:active {
